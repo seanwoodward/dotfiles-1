@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+#cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
 
@@ -8,10 +8,24 @@ function doIt() {
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
-		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
-		-avh --no-perms . ~;
+    --exclude ".editorconfig" \
+    --exclude ".gitignore" \
+    --exclude ".gvimrc" \
+    --exclude ".hgignore" \
+    --exclude ".inputrc" \
+    --exclude ".osx" \
+    --exclude ".screenrc" \
+    --exclude ".tmux.conf" \
+    --exclude ".wgetrc" \
+    --exclude "LICENSE-MIT.txt" \
+    --exclude "README.md" \
+    --exclude "bin" \
+    --exclude "brew.sh" \
+    --exclude "init/Preferences.sublime-settings"
+
+    -avh --no-perms . ~;
 	source ~/.bash_profile;
 }
 
